@@ -16,3 +16,5 @@ export const SUBJECTS = {
 export const APP = {
   JWT_BEARER: 'JWT',
 };
+
+export const PROJECT_QUEUE = 'PROJECT_QUEUE';

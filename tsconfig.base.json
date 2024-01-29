@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@rahat/projects": ["libs/projects/src/index.ts"],
       "@rahat/sdk": ["libs/sdk/src/index.ts"]
     }
   },

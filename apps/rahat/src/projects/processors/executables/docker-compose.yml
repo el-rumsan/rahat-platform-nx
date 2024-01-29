@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  your-service-name:
+    image: ${IMAGE_NAME}
+    ports:
+      - ${SERVICE1_PORT}:${SERVICE1_CONTAINER_PORT}
+# Add additional services or configurations as needed

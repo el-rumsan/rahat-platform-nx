@@ -177,3 +177,33 @@ enum SignupStatus {
 }
 
 // ++++++++++++++++++ END: @rumsan/user - Signup +++++++++++++++++++++++++++
+
+// ++++++++++++++++++ START: @rumsan/projects - Projects +++++++++++++++++++++++
+
+// ===================Project Model==================
+
+enum ProjectStatus {
+  PROCESSING
+  CLOSED
+  READY
+}
+
+model ProjectType {
+  id          Int      @id @default(autoincrement())
+  uuid        String   @unique @default(uuid())
+  name        String   @unique
+  projects    Project[]
+}
+
+model Project {
+  id               Int           @id @default(autoincrement())
+  uuid             String        @unique @default(uuid())
+  name             String
+  description      String?
+  status           ProjectStatus @default(PROCESSING)
+  type             ProjectType  @relation(fields: [projectType], references: [name])
+  projectType           String
+  extras           Json?         @db.JsonB()
+  instance_id      String?
+  contract_address String?
+}
