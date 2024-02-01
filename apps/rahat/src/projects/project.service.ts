@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import { PrismaService } from '@rumsan/prisma';
-import { PROJECT_QUEUE } from '../constants';
+import { EVENTS } from '../constants/events';
 import { CreateProjectDto } from './dto/create-project.dto';
 @Injectable()
 export class ProjectService {
@@ -27,7 +27,7 @@ export class ProjectService {
     console.log('path', path);
     //+ project.id + '/';
 
-    this.eventEmitter.emit(PROJECT_QUEUE, { ...project, path });
+    this.eventEmitter.emit(EVENTS.PROJECT_CREATED, { ...project, path });
     // if (!project) throw new Error('Project not created');
 
     return project;
