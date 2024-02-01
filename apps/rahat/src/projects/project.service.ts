@@ -1,9 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import { PrismaService } from '@rumsan/prisma';
-import { EVENTS } from '../constants/events';
+import { PROJECT_QUEUE } from '../constants';
 import { CreateProjectDto } from './dto/create-project.dto';
-
 @Injectable()
 export class ProjectService {
   constructor(
@@ -12,11 +11,25 @@ export class ProjectService {
   ) {}
 
   async create(createProjectDto: CreateProjectDto) {
-    // const project = await  this.prisma.project.create({
-    //   data: {
-    //   },
-    // });
+    const project = await this.prisma.project.create({
+      data: {
+        ...createProjectDto,
+        type: {
+          connect: {
+            name: createProjectDto.type,
+          },
+        },
+      },
+    });
 
-    this.eventEmitter.emit(EVENTS.PROJECT_CREATED, createProjectDto);
+    //get directory path
+    const path = process.cwd() + '/projects' + '/template';
+    console.log('path', path);
+    //+ project.id + '/';
+
+    this.eventEmitter.emit(PROJECT_QUEUE, { ...project, path });
+    // if (!project) throw new Error('Project not created');
+
+    return project;
   }
 }

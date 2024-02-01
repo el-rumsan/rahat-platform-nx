@@ -193,6 +193,11 @@ model ProjectType {
   uuid        String   @unique @default(uuid())
   name        String   @unique
   projects    Project[]
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime? @updatedAt()
+
+  @@map("tbl_project_types")
 }
 
 model Project {
@@ -206,4 +211,9 @@ model Project {
   extras           Json?         @db.JsonB()
   instance_id      String?
   contract_address String?
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt()
+
+  @@map("tbl_projects")
 }

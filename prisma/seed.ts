@@ -113,6 +113,21 @@ export const auths: Array<{
   },
 ];
 
+const projectTypes: Array<{
+  id?: number;
+  name: string;
+  description?: string;
+}> = [
+  {
+    id: 1,
+    name: 'anticipatory-action',
+  },
+  {
+    id: 2,
+    name: 'cva',
+  },
+];
+
 const prisma = new PrismaClient();
 
 async function main() {
@@ -183,6 +198,18 @@ async function main() {
       },
       create: userRoleAttrs,
       update: userRoleAttrs,
+    });
+  }
+
+  for await (const projectType of projectTypes) {
+    const projectTypeAttrs = cloneDeep(projectType);
+    delete projectTypeAttrs.id;
+    await prisma.projectType.upsert({
+      where: {
+        id: projectType.id,
+      },
+      create: projectTypeAttrs,
+      update: projectTypeAttrs,
     });
   }
 }

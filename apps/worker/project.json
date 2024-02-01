@@ -12,7 +12,7 @@
         "target": "node",
         "compiler": "tsc",
         "outputPath": "dist/apps/worker",
-        "main": "apps/worker/src/main.ts",
+        "main": "apps/worker/project.bull.worker.ts",
         "tsConfig": "apps/worker/tsconfig.app.json",
         "webpackConfig": "apps/worker/webpack.config.js"
       },

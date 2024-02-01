@@ -17,4 +17,4 @@ export const APP = {
   JWT_BEARER: 'JWT',
 };
 
-export const PROJECT_QUEUE = 'PROJECT_QUEUE';
+export const PROJECT_QUEUE = 'RAHAT-QUEUE';
