@@ -17,4 +17,15 @@ export const APP = {
   JWT_BEARER: 'JWT',
 };
 
-export const PROJECT_QUEUE = 'RAHAT-QUEUE';
+export const QUEUE = {
+  RAHAT: 'RAHAT',
+  DEBUG: 'BullMQ',
+  HOST: 'HOST',
+};
+
+export const JOBS = {
+  EMAIL: 'email',
+  SLACK: 'slack',
+  OTP: 'otp',
+  PROJECT_CREATE: 'project_create',
+};

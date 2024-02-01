@@ -1,14 +1,22 @@
+import { BullModule } from '@nestjs/bull';
 import { Module } from '@nestjs/common';
-import { QueueModule, QueueService } from '@rumsan/queue';
-import { PROJECT_QUEUE } from '../constants';
+import { AuthsModule } from '@rumsan/user';
+import { QUEUE } from '../constants';
 import { ListenerService } from './listener.service';
 
 @Module({
   imports: [
-    QueueModule.registerQueue({
-      name: PROJECT_QUEUE,
+    AuthsModule,
+    BullModule.registerQueue({
+      name: QUEUE.RAHAT,
+    }),
+    BullModule.registerQueue({
+      name: QUEUE.DEBUG,
+    }),
+    BullModule.registerQueue({
+      name: QUEUE.HOST,
     }),
   ],
-  providers: [ListenerService, QueueService],
+  providers: [ListenerService],
 })
 export class ListenerModule {}
