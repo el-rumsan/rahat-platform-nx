@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  anticipatory-action:
+  'projectType_projectName_uuid':
     image: anticipatory-action
     build:
       context: .
