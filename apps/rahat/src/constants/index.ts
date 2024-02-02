@@ -19,8 +19,8 @@ export const APP = {
 
 export const QUEUE = {
   RAHAT: 'RAHAT',
-  DEBUG: 'BullMQ',
   HOST: 'HOST',
+  DEBUG: 'RAHAT-DEBUG',
 };
 
 export const JOBS = {
