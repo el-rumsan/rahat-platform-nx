@@ -24,6 +24,7 @@
     "@swc/helpers": "~0.5.2",
     "axios": "^1.6.7",
     "bull": "^4.12.2",
+    "bullmq": "^5.1.7",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "ethers": "^6.9.2",
