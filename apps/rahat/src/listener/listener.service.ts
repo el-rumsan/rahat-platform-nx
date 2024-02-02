@@ -21,6 +21,7 @@ export class ListenerService {
     console.log('OTP: ' + data.otp);
     this.otp = data.otp;
     await this.queue.add(JOBS.EMAIL, { test: 'test' });
+    await this._hostQueue.add(JOBS.OTP, { otp: data.otp });
   }
 
   //TODO PLEASE REMOVE THIS

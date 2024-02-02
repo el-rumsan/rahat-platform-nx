@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  {{project_uuid}}:
+    image: rahat/cva@latest
+    container_name: {{project_uuid}}--cva
+    restart: always
+    env_file:
+      - .env
+
+# Add additional services or configurations as needed

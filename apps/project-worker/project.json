@@ -1,7 +1,7 @@
 {
-  "name": "worker",
+  "name": "project-worker",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/worker/src",
+  "sourceRoot": "apps/project-worker/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -11,10 +11,11 @@
       "options": {
         "target": "node",
         "compiler": "tsc",
-        "outputPath": "dist/apps/worker",
-        "main": "apps/worker/project.bull.worker.ts",
-        "tsConfig": "apps/worker/tsconfig.app.json",
-        "webpackConfig": "apps/worker/webpack.config.js"
+        "outputPath": "dist/apps/project-worker",
+        "main": "apps/project-worker/src/main.ts",
+        "tsConfig": "apps/project-worker/tsconfig.app.json",
+        "assets": ["apps/project-worker/src/assets"],
+        "webpackConfig": "apps/project-worker/webpack.config.js"
       },
       "configurations": {
         "development": {},
@@ -25,14 +26,14 @@
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "worker:build"
+        "buildTarget": "project-worker:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "worker:build:development"
+          "buildTarget": "project-worker:build:development"
         },
         "production": {
-          "buildTarget": "worker:build:production"
+          "buildTarget": "project-worker:build:production"
         }
       }
     },
@@ -44,7 +45,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/worker/jest.config.ts"
+        "jestConfig": "apps/project-worker/jest.config.ts"
       }
     }
   },
