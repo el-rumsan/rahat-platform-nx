@@ -22,6 +22,7 @@ import {
   UpdateBeneficiaryDto,
   TFile,
   Enums,
+  UploadBeneficiaryDto,
 } from '@rahat/sdk';
 import { Queue } from 'bull';
 import { UUID } from 'crypto';
@@ -47,9 +48,9 @@ export class BeneficiaryController {
   }
 
   @Post('upload')
-  async uploadBeneficiaries(@Body() dto: any) {
+  async uploadBeneficiaries(@Body() dto: UploadBeneficiaryDto) {
     return this.client
-      .send({ cmd: JOBS.BENEFICIARY.UPDATE }, dto)
+      .send({ cmd: JOBS.BENEFICIARY.UPLOAD }, dto)
       .subscribe((d) => this.queue.add(JOBS.BENEFICIARY.UPLOAD, d));
   }
 

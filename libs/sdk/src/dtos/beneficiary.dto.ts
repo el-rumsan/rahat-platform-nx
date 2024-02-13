@@ -145,3 +145,12 @@ export class ListBeneficiaryDto extends PaginationDto {
   override sort: string = 'createdAt';
   override order: 'asc' | 'desc' = 'desc';
 }
+
+export class UploadBeneficiaryDto {
+  @ApiProperty({
+    type: 'string',
+    example: 'demo',
+  })
+  @IsString()
+  fileName: string;
+}

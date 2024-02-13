@@ -21,13 +21,14 @@ export class BeneficiaryController {
   }
 
   @MessagePattern({ cmd: JOBS.BENEFICIARY.CREATE_BULK })
-  createBulk(@Payload() data) {
+  uploadBulk(@Payload() data) {
     return this.beneficiaryService.createBulk(data);
   }
 
   @MessagePattern({ cmd: JOBS.BENEFICIARY.UPLOAD })
-  uploadBulk(@Payload() data) {
-    return this.beneficiaryService.createBulk(data);
+  uploadFile(@Payload() data) {
+    console.log('Upload==>', data);
+    return 'This action uploads a file';
   }
 
   @MessagePattern({ cmd: JOBS.BENEFICIARY.LIST })
