@@ -21,6 +21,11 @@ export class BeneficiaryController {
   }
 
   @MessagePattern({ cmd: JOBS.BENEFICIARY.CREATE_BULK })
+  createBulk(@Payload() data) {
+    return this.beneficiaryService.createBulk(data);
+  }
+
+  @MessagePattern({ cmd: JOBS.BENEFICIARY.UPLOAD })
   uploadBulk(@Payload() data) {
     return this.beneficiaryService.createBulk(data);
   }

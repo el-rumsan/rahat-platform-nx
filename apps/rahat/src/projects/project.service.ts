@@ -11,7 +11,7 @@ export class ProjectService {
     private eventEmitter: EventEmitter2
   ) {}
 
-  async create(data: CreateProjectDto) {
+  async create(data: any) {
     const project = await this.prisma.project.create({
       data,
     });
